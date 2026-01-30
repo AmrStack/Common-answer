@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اختيار مقدم الخدمة</title>
+  
+  <style>
+    body {
+      background-color: #1e1e1e;
+      text-align: center;
+      font-size: 18px;
+      color: #29A0AE;
+    }
+    
+    button,
+    select {
+      background-color: #10434F;
+      border: 1px solid rgba(0, 209, 255, 1);
+      border-radius: 10px;
+      padding: 10px;
+      outline: none;
+      width: 50%;
+    }
+    
+    option {
+      text-align: center;
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>اختار مين اللي هيحل</h2>
+
+<select id="solver">
+  <option value=""> اختر</option>
+  <option value="elhadydy">عمرو الحديدي</option>
+  <option value="salama">عمرو سلامة</option>
+</select>
+
+<br><br>
+
+<button onclick="goWhatsapp()">التواصل على واتساب</button>
+
+<script>
+function goWhatsapp() {
+  let solver = document.getElementById("solver").value;
+  let number = "";
+  let message = "";
+
+  if (solver === "elhadydy") {
+    number = "201097640142"; 
+    message = "السلام عليكم، اخترت عمرو الحديدي لحل المنصه ممكن التفاصيل";
+  } 
+  else if (solver === "salama") {
+    number = "201096919686";
+    message = "السلام عليكم، اخترت عمرو سلامة لحل المنصه ممكن التفاصيل";
+  } 
+  else {
+    alert("من فضلك اختر الشخص أولاً");
+    return;
+  }
+
+  let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>
